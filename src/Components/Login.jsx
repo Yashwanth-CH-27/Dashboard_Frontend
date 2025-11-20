@@ -10,7 +10,7 @@ const Login = () => {
   const [ password, setPassword ] = useState(""); //Yaswanth@123
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [isLogin, setIsLogin] = useState(true)
+  const [isSignIn, setIsSignIn] = useState(true)
   const [errMessage, setErrMeesage] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -47,8 +47,8 @@ const Login = () => {
     <div className="flex justify-center my-20">
       <div className="card card-dash bg-base-300 w-96">
         <div className="card-body">
-          <h2 className="card-title">{isLogin ? "Login" : "Sign Up"}</h2>
-          {!isLogin &&<fieldset className="fieldset">
+          <h2 className="card-title">{isSignIn ? "Sign In" : "Sign Up"}</h2>
+          {!isSignIn &&<fieldset className="fieldset">
             <legend className="fieldset-legend">First Name</legend>
             <input
               value={firstName}
@@ -58,7 +58,7 @@ const Login = () => {
               onChange = {(e) => setFirstName(e.target.value)}
             />
           </fieldset>}
-          {!isLogin && <fieldset className="fieldset">
+          {!isSignIn && <fieldset className="fieldset">
             <legend className="fieldset-legend">Last Name</legend>
             <input
               value={lastName}
@@ -90,10 +90,10 @@ const Login = () => {
           </fieldset>
           <div className="card-actions py-5 mx-auto">
             <p className="text-red-700">{errMessage}</p>
-            <button className="btn btn-primary" onClick={isLogin? handleLogIn : handleSignUp}>{isLogin ? "Log In": "Sign Up"}</button>
+            <button className="btn btn-primary" onClick={isSignIn? handleLogIn : handleSignUp}>{isSignIn ? "Log In": "Sign Up"}</button>
           </div>
           <div>
-            <p className="cursor-pointer text-center" onClick={() => setIsLogin((value) => !value) }>{isLogin ? "New User? Sign Up" : "Existing User? Login"}</p>
+            <p className="cursor-pointer text-center" onClick={() => setIsSignIn((value) => !value) }>{isSignIn ? "New User? Sign Up" : "Existing User? Login"}</p>
           </div>
         </div>
       </div>
