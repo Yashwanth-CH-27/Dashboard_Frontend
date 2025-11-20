@@ -20,7 +20,7 @@ const Layout = () => {
       });
       dispatch(addUser(res.data))
     } catch (err) {
-      if(err){
+      if(err.response.status == 401){
         dispatch(removeUser())
         navigate("/login")
       }
