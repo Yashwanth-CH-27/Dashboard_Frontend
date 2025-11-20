@@ -37,7 +37,7 @@ const Login = () => {
     try{
     const res  = await axios.post(BASE_URL + "signUp", {firstName, lastName, emailID, password}, {withCredentials:true});
     dispatch(addUser(res?.data))
-    return navigate("/profile")
+    return navigate("/Core")
     }
     catch(err){
       setErrMeesage(err?.response?.data)
