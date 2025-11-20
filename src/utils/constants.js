@@ -1,0 +1,1 @@
+export const BASE_URL = "https://dashboard-backend-yp8t.onrender.com/"
