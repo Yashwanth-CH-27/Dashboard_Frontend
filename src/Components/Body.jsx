@@ -3,6 +3,7 @@ import Login from "./Login";
 import Layout from "./Layout";
 import Core from "./Core"
 import ProtectedRoute from "./ProtectedRoutes";
+import Profile from "./Profile";
 
 
 const Body = () => {
@@ -22,6 +23,10 @@ const Body = () => {
           path: "login",
           element: <Login />,
         },
+        {
+          path:"profile",
+          element:<Profile/>
+        }
       ],
     },
   ]);
