@@ -5,17 +5,22 @@ import { Link } from "react-router-dom";
 const Core = () => {
   return (
     <div>
-      <div className="drawer lg:drawer-open">
-        <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer">
+        <input id="my-drawer-1" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content">
           {/* Page content here */}
-          <label htmlFor="my-drawer-3" className="btn drawer-button lg:hidden">
-            Open drawer
+          <p>
+            Welcome back! We're happy to have you here. Explore your dashboard
+            to update your profile, create notes, and manage everything in one
+            place.
+          </p>
+          <label htmlFor="my-drawer-1" className="btn drawer-button">
+            Open Side-Bar!
           </label>
         </div>
         <div className="drawer-side">
           <label
-            htmlFor="my-drawer-3"
+            htmlFor="my-drawer-1"
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
