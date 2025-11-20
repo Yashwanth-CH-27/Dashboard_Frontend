@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BASE_URL } from "../utils/constants";
 import { addUser } from "../Redux/userSlice";
 
-const ProfileEdit = ({user}) => {
+const ProfileEdit = () => {
+  const user = useSelector((store) => store.user)
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [age, setAge] = useState(user.age || "");
