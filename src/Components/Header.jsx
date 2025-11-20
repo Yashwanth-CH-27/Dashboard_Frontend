@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
-export const Header = () => {
+const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <div>
+      <div className="navbar bg-neutral text-neutral-content">
+        <button className="btn btn-ghost text-xl">Dashboard</button>
+      </div>
+    </div>
+  );
+};
 
-export default Header
+export default Header;
