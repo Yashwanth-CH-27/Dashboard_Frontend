@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom"
 import Header from "./Header"
 import Footer from "./Footer"
-import axios from "axios";
+import axios from "axios"
 import { BASE_URL } from "../utils/constants.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";

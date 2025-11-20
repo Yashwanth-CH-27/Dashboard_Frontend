@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Login from "./Login";
 import Layout from "./Layout";
-import Profile from "./Profile";
+import Core from "./Core"
 import ProtectedRoute from "./ProtectedRoutes";
 
 
@@ -21,10 +21,6 @@ const Body = () => {
         {
           path: "login",
           element: <Login />,
-        },
-        {
-            path:"profile",
-            element:<Profile/>
         },
       ],
     },
