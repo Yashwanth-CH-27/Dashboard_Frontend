@@ -1,11 +1,12 @@
 import React from "react";
 import Profile from "./Profile";
 import { Link } from "react-router-dom";
+import TasksPage from "./TaskPage";
 
 const Core = () => {
   return (
     <div>
-     Dashboard
+     <TasksPage/>
     </div>
   );
 };
