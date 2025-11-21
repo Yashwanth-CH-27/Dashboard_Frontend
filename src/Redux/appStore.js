@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./userSlice"
-
+import userReducer from "./userSlice";
+import taskReducer from "./taskSlice";
 
 const appStore = configureStore({
-    reducer: {
-        user: userReducer
-    }
-})
+  reducer: {
+    user: userReducer,
+    tasks: taskReducer, 
+  },
+});
 
-export default appStore
+export default appStore;
