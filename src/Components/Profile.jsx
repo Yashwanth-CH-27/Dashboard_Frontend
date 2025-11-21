@@ -76,6 +76,7 @@ const ProfileEdit = () => {
             <p className="text-red-700">{errMessage}</p>
             <button className="btn btn-primary" onClick={hadleSave}>Save Profile</button>
           </div>
+          <p>Click the Dashboard in the nav bar to go to Dashboard!</p>
         </div>
       </div>
       {toastMessage && <div className="toast toast-top toast-center">

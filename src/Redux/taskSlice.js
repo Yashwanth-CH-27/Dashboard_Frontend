@@ -1,8 +1,6 @@
-// src/Redux/taskSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-
 
 export const fetchTasks = createAsyncThunk(
   "tasks/fetchTasks",
@@ -17,7 +15,6 @@ export const fetchTasks = createAsyncThunk(
         withCredentials: true,
       });
 
-      
       if (!Array.isArray(res.data)) {
         return rejectWithValue(
           res.data?.message || res.data || "Failed to fetch tasks"
@@ -35,8 +32,6 @@ export const fetchTasks = createAsyncThunk(
   }
 );
 
-
-
 export const createTask = createAsyncThunk(
   "tasks/createTask",
   async (taskData, { rejectWithValue }) => {
@@ -47,12 +42,13 @@ export const createTask = createAsyncThunk(
       return res.data;
     } catch (err) {
       return rejectWithValue(
-        err.response?.data?.message || err.response?.data || "Failed to create task"
+        err.response?.data?.message ||
+          err.response?.data ||
+          "Failed to create task"
       );
     }
   }
 );
-
 
 export const updateTask = createAsyncThunk(
   "tasks/updateTask",
@@ -61,15 +57,16 @@ export const updateTask = createAsyncThunk(
       const res = await axios.put(`${BASE_URL}task/update/${id}`, data, {
         withCredentials: true,
       });
-      return res.data; 
+      return res.data;
     } catch (err) {
       return rejectWithValue(
-        err.response?.data?.message || err.response?.data || "Failed to update task"
+        err.response?.data?.message ||
+          err.response?.data ||
+          "Failed to update task"
       );
     }
   }
 );
-
 
 export const deleteTask = createAsyncThunk(
   "tasks/deleteTask",
@@ -78,10 +75,12 @@ export const deleteTask = createAsyncThunk(
       await axios.delete(`${BASE_URL}task/delete/${id}`, {
         withCredentials: true,
       });
-      return id; 
+      return id;
     } catch (err) {
       return rejectWithValue(
-        err.response?.data?.message || err.response?.data || "Failed to delete task"
+        err.response?.data?.message ||
+          err.response?.data ||
+          "Failed to delete task"
       );
     }
   }
@@ -100,7 +99,6 @@ const taskSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    
     builder
       .addCase(fetchTasks.pending, (state) => {
         state.loading = true;
@@ -115,7 +113,6 @@ const taskSlice = createSlice({
         state.error = action.payload || "Failed to fetch tasks";
       });
 
-   
     builder
       .addCase(createTask.pending, (state) => {
         state.loading = true;
@@ -123,7 +120,7 @@ const taskSlice = createSlice({
       })
       .addCase(createTask.fulfilled, (state, action) => {
         state.loading = false;
-        state.items.unshift(action.payload); 
+        state.items.unshift(action.payload);
       })
       .addCase(createTask.rejected, (state, action) => {
         state.loading = false;
@@ -147,7 +144,6 @@ const taskSlice = createSlice({
         state.error = action.payload || "Failed to update task";
       });
 
-   
     builder
       .addCase(deleteTask.pending, (state) => {
         state.loading = true;
