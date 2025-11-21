@@ -1,16 +1,47 @@
-# React + Vite
+# Dashboard Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Demo: **https://dashboard-frontend-w29h.vercel.app/**  
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is the frontend application for a scalable web dashboard built using **React**, **Vite**, **Redux Toolkit**, **TailwindCSS**, and **DaisyUI**.  
+It includes user authentication, a protected dashboard, profile view, and a complete Task Manager module with full CRUD operations.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
 
-## Expanding the ESLint configuration
+### 🔐 Authentication
+- Sign Up / Sign In with backend validation  
+- JWT stored inside **secure cookies** (HTTP-only on backend)  
+- Logout via backend  
+- Persistence of user through Redux  
+- Protected routes using a custom `ProtectedRoute` component  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 👤 User Profile
+- Fetch user profile through `/profile/view`  
+- Update profile using `/profile/edit`  
+- Fully integrated with authentication cookie  
+
+### 📋 Task Manager (CRUD)
+- Create tasks (title, description, status, priority)  
+- Edit tasks  
+- Delete tasks  
+- Search tasks by title/description  
+- Filter tasks by status  
+- Fully responsive UI  
+- Global state stored in **Redux Toolkit** (`taskSlice`)  
+
+### 🎨 UI & Design
+- TailwindCSS + DaisyUI  
+- Fully responsive  
+- Dark theme (Black background + White text)  
+- Clean dashboard layout  
+
+---
+
+## ⚙️ Backend Integration
+
+All API requests use:
+
+```js
+withCredentials: true
