@@ -17,14 +17,24 @@ export const fetchTasks = createAsyncThunk(
         withCredentials: true,
       });
 
-      return res.data; 
+      
+      if (!Array.isArray(res.data)) {
+        return rejectWithValue(
+          res.data?.message || res.data || "Failed to fetch tasks"
+        );
+      }
+
+      return res.data;
     } catch (err) {
       return rejectWithValue(
-        err.response?.data?.message || err.response?.data || "Failed to fetch tasks"
+        err.response?.data?.message ||
+          err.response?.data ||
+          "Failed to fetch tasks"
       );
     }
   }
 );
+
 
 
 export const createTask = createAsyncThunk(
